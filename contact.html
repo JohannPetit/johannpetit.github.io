@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact / Booking – Johann Petit</title>
+
+  <meta name="description" content="Contact et booking officiel de Johann Petit." />
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Georgia, serif;
+      background: linear-gradient(180deg, #0f0f14, #1a1a22);
+      color: #f2f2f2;
+    }
+
+    header {
+      text-align: center;
+      padding: 80px 20px 60px;
+      background: radial-gradient(circle at top, #3a2a4f, #0f0f14);
+    }
+
+    header h1 {
+      font-size: 2.6em;
+      margin: 0;
+    }
+
+    header p {
+      opacity: 0.85;
+      margin-top: 10px;
+    }
+
+    section {
+      max-width: 720px;
+      margin: auto;
+      padding: 80px 20px;
+    }
+
+    h2 {
+      color: #ffd37a;
+      margin-bottom: 20px;
+    }
+
+    p {
+      line-height: 1.7;
+    }
+
+    form {
+      background: rgba(255,255,255,0.05);
+      padding: 30px;
+      border-radius: 14px;
+      margin-top: 30px;
+    }
+
+    label {
+      display: block;
+      margin-top: 20px;
+      font-weight: bold;
+      color: #ffd37a;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      margin-top: 8px;
+      padding: 10px;
+      border-radius: 8px;
+      border: none;
+      font-family: Georgia, serif;
+    }
+
+    textarea {
+      min-height: 120px;
+    }
+
+    button {
+      margin-top: 30px;
+      background: #ffd37a;
+      color: #0f0f14;
+      border: none;
+      padding: 14px 22px;
+      font-weight: bold;
+      border-radius: 30px;
+      cursor: pointer;
+      font-size: 1em;
+    }
+
+    footer {
+      text-align: center;
+      padding: 40px 20px;
+      background: #0f0f14;
+      font-size: 0.9em;
+      opacity: 0.7;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>Contact / Booking</h1>
+  <p>Johann Petit – Auteur · Compositeur · Interprète</p>
+</header>
+
+<section>
+  <h2>Avant de me contacter</h2>
+
+  <p>
+    Merci de remplir ce formulaire afin de préciser votre demande.
+    Cela permet de répondre plus efficacement et dans les meilleurs délais.
+  </p>
+
+  <form action="mailto:cartelrecordsstudio@proton.me" method="post" enctype="text/plain">
+
+    <label>Nom / Organisation</label>
+    <input type="text" name="Nom" required>
+
+    <label>Email</label>
+    <input type="email" name="Email" required>
+
+    <label>Type de demande</label>
+    <select name="Type de demande" required>
+      <option value="">— Sélectionner —</option>
+      <option>Booking (concert / événement)</option>
+      <option>Presse / Interview</option>
+      <option>Collaboration artistique</option>
+      <option>Projet culturel / institution</option>
+      <option>Autre</option>
+    </select>
+
+    <label>Date ou période concernée</label>
+    <input type="text" name="Date">
+
+    <label>Lieu / Ville</label>
+    <input type="text" name="Lieu">
+
+    <label>Message / Détails de la demande</label>
+    <textarea name="Message" required></textarea>
+
+    <button type="submit">Envoyer la demande</button>
+  </form>
+</section>
+
+<footer>
+  © Johann Petit – Tous droits réservés<br>
+  Production Cartel Records Studio · SACEM France
+</footer>
+
+</body>
+</html>
