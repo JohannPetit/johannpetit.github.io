@@ -3,94 +3,310 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>Contact / Booking – Johann Petit</title>
 
-  <meta name="description" content="Contact et booking officiel de Johann Petit." />
+  <meta
+    name="description"
+    content="Contact et booking officiel de Johann Petit – Auteur, Compositeur, Interprète."
+  />
 
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
-      font-family: Georgia, serif;
-      background: linear-gradient(180deg, #0f0f14, #1a1a22);
-      color: #f2f2f2;
+      font-family: Georgia, "Times New Roman", serif;
+      color: #f5f2ed;
+
+      background:
+        radial-gradient(
+          circle at 20% 15%,
+          rgba(92, 62, 130, 0.30),
+          transparent 35%
+        ),
+        radial-gradient(
+          circle at 80% 75%,
+          rgba(218, 158, 67, 0.12),
+          transparent 32%
+        ),
+        linear-gradient(
+          135deg,
+          #090910 0%,
+          #15121d 50%,
+          #0c0c13 100%
+        );
+
+      min-height: 100vh;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+
+      background:
+        linear-gradient(
+          rgba(255,255,255,0.018) 1px,
+          transparent 1px
+        ),
+        linear-gradient(
+          90deg,
+          rgba(255,255,255,0.018) 1px,
+          transparent 1px
+        );
+
+      background-size: 45px 45px;
+
+      mask-image: linear-gradient(
+        to bottom,
+        transparent,
+        black 20%,
+        black 80%,
+        transparent
+      );
     }
 
     header {
+      position: relative;
       text-align: center;
-      padding: 80px 20px 60px;
-      background: radial-gradient(circle at top, #3a2a4f, #0f0f14);
+      padding: 85px 20px 65px;
+
+      background:
+        radial-gradient(
+          circle at top,
+          rgba(70, 47, 95, 0.85),
+          rgba(15, 14, 22, 0.20) 65%
+        );
+
+      border-bottom: 1px solid rgba(255, 211, 122, 0.18);
+    }
+
+    header .eyebrow {
+      color: #ffd37a;
+      font-size: 0.78rem;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      margin-bottom: 18px;
     }
 
     header h1 {
-      font-size: 2.6em;
       margin: 0;
+      font-size: clamp(2.4rem, 6vw, 4.2rem);
+      letter-spacing: 0.04em;
     }
 
     header p {
-      opacity: 0.85;
-      margin-top: 10px;
+      margin-top: 18px;
+      color: #d9cce4;
+      font-size: 1.15rem;
+      letter-spacing: 0.06em;
+    }
+
+    .line {
+      width: 80px;
+      height: 2px;
+      margin: 30px auto 0;
+
+      background: linear-gradient(
+        90deg,
+        transparent,
+        #ffd37a,
+        transparent
+      );
     }
 
     section {
-      max-width: 720px;
+      position: relative;
+      width: min(760px, calc(100% - 40px));
       margin: auto;
-      padding: 80px 20px;
+      padding: 75px 0;
     }
 
     h2 {
+      margin: 0 0 20px;
       color: #ffd37a;
-      margin-bottom: 20px;
+      font-size: clamp(1.7rem, 4vw, 2.3rem);
+      font-weight: normal;
     }
 
-    p {
+    .intro {
+      color: #ddd8d4;
+      font-size: 1.05rem;
+      line-height: 1.8;
+      margin-bottom: 35px;
+    }
+
+    .notice {
+      padding: 18px 20px;
+      margin-bottom: 30px;
+
+      border-left: 3px solid #ffd37a;
+
+      background: rgba(255,255,255,0.035);
+      border-radius: 0 10px 10px 0;
+
+      color: #d9d3d0;
       line-height: 1.7;
     }
 
     form {
-      background: rgba(255,255,255,0.05);
-      padding: 30px;
-      border-radius: 14px;
-      margin-top: 30px;
+      position: relative;
+
+      padding: 38px;
+
+      background: rgba(255,255,255,0.045);
+
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 18px;
+
+      box-shadow:
+        0 25px 60px rgba(0,0,0,0.30),
+        inset 0 1px 0 rgba(255,255,255,0.035);
+
+      backdrop-filter: blur(10px);
     }
 
     label {
       display: block;
-      margin-top: 20px;
-      font-weight: bold;
+
+      margin-top: 22px;
+      margin-bottom: 8px;
+
       color: #ffd37a;
+      font-weight: bold;
     }
 
-    input, select, textarea {
+    label:first-child {
+      margin-top: 0;
+    }
+
+    input,
+    select,
+    textarea {
       width: 100%;
-      margin-top: 8px;
-      padding: 10px;
-      border-radius: 8px;
-      border: none;
-      font-family: Georgia, serif;
+
+      padding: 13px 14px;
+
+      border-radius: 9px;
+
+      border: 1px solid rgba(255,255,255,0.10);
+
+      background: rgba(0,0,0,0.28);
+
+      color: #f5f2ed;
+
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1rem;
+
+      outline: none;
+
+      transition:
+        border-color 0.2s ease,
+        background 0.2s ease,
+        box-shadow 0.2s ease;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      border-color: rgba(255,211,122,0.65);
+
+      background: rgba(0,0,0,0.38);
+
+      box-shadow:
+        0 0 0 3px rgba(255,211,122,0.08);
+    }
+
+    select {
+      cursor: pointer;
     }
 
     textarea {
-      min-height: 120px;
+      min-height: 150px;
+      resize: vertical;
+      line-height: 1.6;
     }
 
     button {
-      margin-top: 30px;
-      background: #ffd37a;
-      color: #0f0f14;
+      display: block;
+
+      margin: 32px auto 0;
+
+      padding: 14px 28px;
+
       border: none;
-      padding: 14px 22px;
-      font-weight: bold;
       border-radius: 30px;
+
+      background: #ffd37a;
+      color: #111018;
+
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1rem;
+      font-weight: bold;
+
       cursor: pointer;
-      font-size: 1em;
+
+      box-shadow:
+        0 8px 25px rgba(255,211,122,0.14);
+
+      transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+    }
+
+    button:hover {
+      transform: translateY(-2px);
+
+      box-shadow:
+        0 12px 30px rgba(255,211,122,0.22);
     }
 
     footer {
       text-align: center;
-      padding: 40px 20px;
-      background: #0f0f14;
-      font-size: 0.9em;
-      opacity: 0.7;
+
+      padding: 45px 20px;
+
+      border-top: 1px solid rgba(255,255,255,0.06);
+
+      background: rgba(5,5,9,0.55);
+
+      color: rgba(255,255,255,0.55);
+
+      font-size: 0.85rem;
+      line-height: 1.7;
+    }
+
+    @media (max-width: 600px) {
+
+      header {
+        padding: 60px 20px 50px;
+      }
+
+      header p {
+        font-size: 1rem;
+      }
+
+      section {
+        width: min(100% - 28px, 760px);
+        padding: 55px 0;
+      }
+
+      form {
+        padding: 25px 20px;
+        border-radius: 14px;
+      }
+
+      button {
+        width: 100%;
+      }
     }
   </style>
 </head>
@@ -98,53 +314,163 @@
 <body>
 
 <header>
-  <h1>Contact / Booking</h1>
-  <p>Johann Petit – Auteur · Compositeur · Interprète</p>
-</header>
 
-<section>
-  <h2>Avant de me contacter</h2>
+  <div class="eyebrow">
+    Site officiel
+  </div>
+
+  <h1>
+    Contact / Booking
+  </h1>
 
   <p>
-    Merci de remplir ce formulaire afin de préciser votre demande.
-    Cela permet de répondre plus efficacement et dans les meilleurs délais.
+    Johann Petit · Auteur · Compositeur · Interprète
   </p>
 
-  <form action="mailto:cartelrecordsstudio@proton.me" method="post" enctype="text/plain">
+  <div class="line"></div>
 
-    <label>Nom / Organisation</label>
-    <input type="text" name="Nom" required>
+</header>
 
-    <label>Email</label>
-    <input type="email" name="Email" required>
 
-    <label>Type de demande</label>
-    <select name="Type de demande" required>
-      <option value="">— Sélectionner —</option>
-      <option>Booking (concert / événement)</option>
-      <option>Presse / Interview</option>
-      <option>Collaboration artistique</option>
-      <option>Projet culturel / institution</option>
-      <option>Autre</option>
+<section>
+
+  <h2>
+    Avant de me contacter
+  </h2>
+
+  <p class="intro">
+    Merci de remplir ce formulaire afin de préciser votre demande.
+    Cela permettra de vous répondre plus efficacement et dans les meilleurs délais.
+  </p>
+
+
+  <div class="notice">
+
+    Les demandes peuvent concerner notamment le booking,
+    la presse, les interviews, les collaborations artistiques
+    ou les projets culturels et institutionnels.
+
+  </div>
+
+
+  <form
+    action="mailto:cartelrecordsstudio@proton.me"
+    method="post"
+    enctype="text/plain"
+  >
+
+    <label for="nom">
+      Nom / Organisation
+    </label>
+
+    <input
+      id="nom"
+      type="text"
+      name="Nom"
+      required
+    >
+
+
+    <label for="email">
+      Email
+    </label>
+
+    <input
+      id="email"
+      type="email"
+      name="Email"
+      required
+    >
+
+
+    <label for="demande">
+      Type de demande
+    </label>
+
+    <select
+      id="demande"
+      name="Type de demande"
+      required
+    >
+
+      <option value="">
+        — Sélectionner —
+      </option>
+
+      <option>
+        Booking (concert / événement)
+      </option>
+
+      <option>
+        Presse / Interview
+      </option>
+
+      <option>
+        Collaboration artistique
+      </option>
+
+      <option>
+        Projet culturel / institution
+      </option>
+
+      <option>
+        Autre
+      </option>
+
     </select>
 
-    <label>Date ou période concernée</label>
-    <input type="text" name="Date">
 
-    <label>Lieu / Ville</label>
-    <input type="text" name="Lieu">
+    <label for="date">
+      Date ou période concernée
+    </label>
 
-    <label>Message / Détails de la demande</label>
-    <textarea name="Message" required></textarea>
+    <input
+      id="date"
+      type="text"
+      name="Date"
+      placeholder="Ex. Juin 2027"
+    >
 
-    <button type="submit">Envoyer la demande</button>
+
+    <label for="lieu">
+      Lieu / Ville
+    </label>
+
+    <input
+      id="lieu"
+      type="text"
+      name="Lieu"
+    >
+
+
+    <label for="message">
+      Message / Détails de la demande
+    </label>
+
+    <textarea
+      id="message"
+      name="Message"
+      required
+    ></textarea>
+
+
+    <button type="submit">
+      Envoyer la demande
+    </button>
+
   </form>
+
 </section>
 
+
 <footer>
+
   © Johann Petit – Tous droits réservés<br>
+
   Production Cartel Records Studio · SACEM France
+
 </footer>
+
 
 </body>
 </html>
