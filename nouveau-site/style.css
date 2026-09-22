@@ -747,6 +747,8 @@ em {
 
   display: flex;
 
+  flex-direction: column;
+
   justify-content: center;
 
   align-items: center;
@@ -759,15 +761,27 @@ em {
 }
 
 
+/* Lien autour de la jaquette */
+
+.album-cover-link {
+
+  display: block;
+
+  width: min(100%, 330px);
+
+  line-height: 0;
+
+  border-radius: 20px;
+
+  overflow: hidden;
+}
+
+
 .album-cover img {
 
   display: block;
 
-  width:
-    min(
-      100%,
-      330px
-    );
+  width: 100%;
 
   aspect-ratio: 1 / 1;
 
@@ -802,6 +816,101 @@ em {
 
   box-shadow:
     0 25px 55px rgba(0,0,0,0.55);
+}
+
+
+/* =========================================================
+   LIEN SPOTIFY
+   ========================================================= */
+
+.album-spotify-link {
+
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  margin-top: 18px;
+
+  padding:
+    9px 17px;
+
+  color: var(--gold-light);
+
+  font-size: 0.82rem;
+
+  font-weight: bold;
+
+  letter-spacing: 0.04em;
+
+  border:
+    1px solid rgba(230,184,92,0.25);
+
+  border-radius: 30px;
+
+  background:
+    rgba(230,184,92,0.055);
+
+  transition:
+
+    background 0.25s ease,
+
+    border-color 0.25s ease,
+
+    color 0.25s ease,
+
+    transform 0.25s ease;
+}
+
+
+.album-spotify-link:hover {
+
+  color: var(--white);
+
+  background:
+    rgba(230,184,92,0.14);
+
+  border-color:
+    rgba(230,184,92,0.55);
+
+  transform:
+    translateY(-2px);
+}
+
+
+/* =========================================================
+   STATUT ALBUM À VENIR
+   ========================================================= */
+
+.album-status {
+
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  margin-top: 18px;
+
+  padding:
+    9px 17px;
+
+  color: var(--muted);
+
+  font-size: 0.82rem;
+
+  font-weight: bold;
+
+  letter-spacing: 0.04em;
+
+  border:
+    1px solid rgba(255,255,255,0.10);
+
+  border-radius: 30px;
+
+  background:
+    rgba(255,255,255,0.035);
 }
 
 
@@ -1457,7 +1566,7 @@ footer strong {
   }
 
 
-  .album-cover img {
+  .album-cover-link {
 
     width:
       min(
@@ -1514,6 +1623,7 @@ footer strong {
 
 
   header .eyebrow {
+
     font-size: 0.68rem;
 
     letter-spacing: 0.22em;
@@ -1591,15 +1701,31 @@ footer strong {
   }
 
 
-  .album-cover img {
+  .album-cover-link {
 
     width:
       min(
         100%,
         320px
       );
+  }
+
+
+  .album-cover img {
 
     border-radius: 17px;
+  }
+
+
+  .album-spotify-link,
+  .album-status {
+
+    font-size: 0.76rem;
+
+    padding:
+      8px 14px;
+
+    text-align: center;
   }
 
 
