@@ -1451,3 +1451,205 @@ footer strong {
     transition-duration: 0.01ms !important;
   }
 }
+/* ==========================================================
+   CARTES DES PROJETS MUSICAUX
+   ========================================================== */
+
+.album-list {
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+  margin-top: 50px;
+}
+
+.album-showcase {
+  width: 100%;
+  max-width: 1025px;
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: 340px 1fr;
+  gap: 55px;
+  align-items: center;
+
+  padding: 55px;
+
+  background: linear-gradient(
+    145deg,
+    rgba(35, 32, 48, 0.96),
+    rgba(18, 17, 29, 0.98)
+  );
+
+  border: 1px solid rgba(212, 164, 75, 0.38);
+  border-radius: 28px;
+
+  box-sizing: border-box;
+
+  box-shadow:
+    0 18px 45px rgba(0, 0, 0, 0.28),
+    inset 0 1px 0 rgba(255, 255, 255, 0.025);
+
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.album-showcase:hover {
+  transform: translateY(-4px);
+
+  border-color: rgba(212, 164, 75, 0.65);
+
+  box-shadow:
+    0 24px 55px rgba(0, 0, 0, 0.34),
+    0 0 25px rgba(212, 164, 75, 0.06);
+}
+
+
+/* ==========================================================
+   JAQUETTE
+   ========================================================== */
+
+.album-cover {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.album-cover img {
+  display: block;
+
+  width: 100%;
+  max-width: 340px;
+  aspect-ratio: 1 / 1;
+
+  object-fit: cover;
+
+  border-radius: 18px;
+
+  border: 1px solid rgba(212, 164, 75, 0.45);
+
+  box-shadow:
+    0 15px 35px rgba(0, 0, 0, 0.4);
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.album-showcase:hover .album-cover img {
+  transform: scale(1.02);
+
+  box-shadow:
+    0 20px 40px rgba(0, 0, 0, 0.48);
+}
+
+
+/* ==========================================================
+   CONTENU DE L'ALBUM
+   ========================================================== */
+
+.album-content {
+  min-width: 0;
+}
+
+.album-content h3 {
+  margin-top: 12px;
+  margin-bottom: 25px;
+}
+
+.album-content p {
+  line-height: 1.8;
+}
+
+
+/* ==========================================================
+   SÉPARATION DES INFORMATIONS
+   ========================================================== */
+
+.album-divider {
+  width: 100%;
+  height: 1px;
+
+  margin: 30px 0;
+
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(212, 164, 75, 0.45),
+    transparent
+  );
+}
+
+
+/* ==========================================================
+   INFORMATIONS DE L'ALBUM
+   ========================================================== */
+
+.album-details {
+  margin-top: 10px;
+}
+
+.album-details p {
+  margin: 0;
+  line-height: 1.9;
+}
+
+
+/* ==========================================================
+   VERSION MOBILE
+   ========================================================== */
+
+@media (max-width: 900px) {
+
+  .album-showcase {
+    grid-template-columns: 1fr;
+
+    gap: 35px;
+
+    padding: 35px 28px;
+
+    border-radius: 24px;
+  }
+
+  .album-cover img {
+    max-width: 330px;
+  }
+
+  .album-content {
+    text-align: left;
+  }
+
+}
+
+
+/* ==========================================================
+   PETITS ÉCRANS
+   ========================================================== */
+
+@media (max-width: 600px) {
+
+  .album-list {
+    gap: 35px;
+    margin-top: 35px;
+  }
+
+  .album-showcase {
+    padding: 25px 20px;
+
+    border-radius: 20px;
+  }
+
+  .album-cover img {
+    max-width: 100%;
+  }
+
+  .album-content h3 {
+    margin-bottom: 20px;
+  }
+
+  .album-content p {
+    line-height: 1.7;
+  }
+
+}
