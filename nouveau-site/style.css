@@ -187,7 +187,7 @@ header {
 }
 
 
-/* Halo lumineux derrière le titre */
+/* Halo lumineux */
 
 header::before {
   content: "";
@@ -530,52 +530,46 @@ em {
 }
 
 
-/* ---------------------------------------------------------
-   DISCOGRAPHIE / ALBUMS
-   --------------------------------------------------------- */
+/* =========================================================
+   DISCOGRAPHIE
+   ========================================================= */
 
 .albums {
-  display: grid;
+  display: flex;
 
-  grid-template-columns:
-    repeat(
-      auto-fit,
-      minmax(280px, 1fr)
-    );
+  flex-direction: column;
 
-  gap: 28px;
+  gap: 45px;
 
-  align-items: start;
+  width: 100%;
 }
 
 
-/* ---------------------------------------------------------
-   CARTE D'ALBUM
-   --------------------------------------------------------- */
+/* =========================================================
+   CARTE ALBUM
+   ========================================================= */
 
 .album {
   position: relative;
 
   width: 100%;
 
-  padding: 35px;
+  display: grid;
 
-  display: flex;
+  grid-template-columns:
+    minmax(280px, 360px)
+    minmax(0, 1fr);
 
-  flex-direction: column;
+  gap: 45px;
 
-  justify-content: flex-start;
+  align-items: center;
 
-  align-self: start;
-
-  height: auto;
-
-  min-height: 0;
+  padding: 40px;
 
   border:
-    1px solid rgba(255,255,255,0.08);
+    1px solid rgba(255,255,255,0.09);
 
-  border-radius: var(--radius);
+  border-radius: 24px;
 
   background:
     linear-gradient(
@@ -585,7 +579,7 @@ em {
     );
 
   box-shadow:
-    0 20px 55px rgba(0,0,0,0.25);
+    0 25px 65px rgba(0,0,0,0.30);
 
   overflow: hidden;
 
@@ -617,22 +611,22 @@ em {
       transparent
     );
 
-  opacity: 0.75;
+  opacity: 0.8;
 }
 
 
-/* Halo discret */
+/* Halo décoratif */
 
 .album::after {
   content: "";
 
   position: absolute;
 
-  top: -120px;
-  right: -120px;
+  top: -160px;
+  right: -160px;
 
-  width: 260px;
-  height: 260px;
+  width: 360px;
+  height: 360px;
 
   border-radius: 50%;
 
@@ -647,77 +641,304 @@ em {
 }
 
 
-/* Animation au survol */
+/* Survol */
 
 .album:hover {
-  transform: translateY(-6px);
+  transform: translateY(-5px);
 
   border-color:
     rgba(230,184,92,0.35);
 
   box-shadow:
-    0 30px 70px rgba(0,0,0,0.40);
+    0 35px 80px rgba(0,0,0,0.40);
 }
 
 
-/* ---------------------------------------------------------
-   CONTENU DES ALBUMS
-   --------------------------------------------------------- */
+/* =========================================================
+   JAQUETTE DE L'ALBUM
+   ========================================================= */
+
+.album-cover {
+  position: relative;
+
+  width: 100%;
+
+  max-width: 360px;
+
+  margin: 0 auto;
+
+  aspect-ratio: 1 / 1;
+
+  border-radius: 16px;
+
+  overflow: hidden;
+
+  border:
+    1px solid rgba(230,184,92,0.28);
+
+  background:
+    #0b0a12;
+
+  box-shadow:
+    0 20px 50px rgba(0,0,0,0.45);
+
+  z-index: 2;
+}
+
+
+.album-cover img {
+  display: block;
+
+  width: 100%;
+
+  height: 100%;
+
+  object-fit: cover;
+
+  object-position: center;
+
+  transition:
+    transform 0.5s ease,
+    filter 0.5s ease;
+}
+
+
+.album:hover .album-cover img {
+  transform: scale(1.025);
+
+  filter:
+    brightness(1.04);
+}
+
+
+/* Petit reflet */
+
+.album-cover::after {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  pointer-events: none;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255,255,255,0.10),
+      transparent 35%,
+      transparent 70%,
+      rgba(230,184,92,0.06)
+    );
+}
+
+
+/* =========================================================
+   CONTENU DE L'ALBUM
+   ========================================================= */
+
+.album-content {
+  position: relative;
+
+  z-index: 2;
+
+  min-width: 0;
+}
+
+
+.album-content .eyebrow {
+  display: block;
+
+  margin-bottom: 14px;
+
+  color: var(--gold);
+
+  font-size: 0.76rem;
+
+  font-weight: bold;
+
+  letter-spacing: 0.22em;
+
+  text-transform: uppercase;
+}
+
 
 .album h3 {
-  margin: 0 0 14px;
+  margin: 0 0 22px;
 
   color: var(--gold-light);
 
-  font-size: 1.45rem;
+  font-size: clamp(
+    1.8rem,
+    3vw,
+    2.6rem
+  );
 
-  line-height: 1.25;
+  line-height: 1.15;
+
+  letter-spacing: 0.01em;
 }
 
+
 .album p {
-  margin: 0 0 18px;
+  margin: 0 0 20px;
 
   color: var(--text);
 
-  font-size: 0.95rem;
+  font-size: 1rem;
 
-  line-height: 1.8;
+  line-height: 1.85;
 }
 
 
-/* ---------------------------------------------------------
+.album p:last-child {
+  margin-bottom: 0;
+}
+
+
+/* =========================================================
    INFORMATIONS DE PRODUCTION
-   --------------------------------------------------------- */
+   ========================================================= */
 
-.album .divider {
-  margin: 22px 0;
+.album-meta {
+  position: relative;
+
+  margin-top: 28px;
+
+  padding-top: 24px;
+
+  border-top:
+    1px solid rgba(230,184,92,0.20);
 }
 
-.album strong {
+
+.album-meta p {
+  margin: 0;
+
+  color: var(--muted);
+
+  font-size: 0.94rem;
+
+  line-height: 1.75;
+}
+
+
+.album-meta strong {
   color: var(--white);
 }
 
 
 /* ---------------------------------------------------------
-   GRILLE DE MÉTADONNÉES
+   SÉPARATEUR DANS LES ALBUMS
    --------------------------------------------------------- */
 
-.album-meta {
-  margin-top: auto;
-}
-
-.album-meta p {
-  margin: 0 0 7px;
-
-  font-size: 0.92rem;
-
-  line-height: 1.6;
+.album .divider {
+  margin: 25px 0;
 }
 
 
-/* ---------------------------------------------------------
+/* =========================================================
+   SECTION "L'HISTOIRE CONTINUE"
+   ========================================================= */
+
+.future-projects {
+  position: relative;
+
+  margin-top: 65px;
+
+  padding: 55px 45px;
+
+  text-align: center;
+
+  border:
+    1px solid rgba(230,184,92,0.20);
+
+  border-radius: 24px;
+
+  background:
+    radial-gradient(
+      circle at top,
+      rgba(109,75,145,0.22),
+      transparent 65%
+    ),
+    rgba(255,255,255,0.025);
+
+  box-shadow:
+    0 25px 70px rgba(0,0,0,0.30);
+
+  overflow: hidden;
+}
+
+
+.future-projects::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: 10%;
+
+  width: 80%;
+  height: 2px;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      var(--gold),
+      transparent
+    );
+}
+
+
+.future-projects .eyebrow {
+  color: var(--gold);
+
+  font-size: 0.78rem;
+
+  font-weight: bold;
+
+  letter-spacing: 0.3em;
+}
+
+
+.future-projects h3 {
+  margin: 18px 0 20px;
+
+  color: var(--gold-light);
+
+  font-size: clamp(
+    1.7rem,
+    3vw,
+    2.4rem
+  );
+
+  line-height: 1.2;
+}
+
+
+.future-projects p {
+  max-width: 850px;
+
+  margin:
+    0 auto 20px;
+}
+
+
+.future-signature {
+  margin-top: 35px;
+
+  color: var(--gold-light);
+
+  font-size: 1.35rem;
+
+  letter-spacing: 0.08em;
+}
+
+
+/* =========================================================
    BOUTONS
-   --------------------------------------------------------- */
+   ========================================================= */
 
 .button {
   display: inline-flex;
@@ -763,9 +984,9 @@ em {
 }
 
 
-/* ---------------------------------------------------------
+/* =========================================================
    LIENS D'ÉCOUTE / RÉSEAUX
-   --------------------------------------------------------- */
+   ========================================================= */
 
 .listen {
   display: flex;
@@ -813,9 +1034,9 @@ em {
 }
 
 
-/* ---------------------------------------------------------
+/* =========================================================
    PRESSE
-   --------------------------------------------------------- */
+   ========================================================= */
 
 .press {
   padding: 35px;
@@ -835,9 +1056,9 @@ em {
 }
 
 
-/* ---------------------------------------------------------
+/* =========================================================
    DÉTAILS / BIOGRAPHIE
-   --------------------------------------------------------- */
+   ========================================================= */
 
 details {
   margin-top: 35px;
@@ -870,14 +1091,28 @@ summary:hover {
   color: var(--white);
 }
 
-details div {
+details > div {
   margin-top: 25px;
 }
 
+details h3 {
+  margin-top: 42px;
 
-/* ---------------------------------------------------------
+  margin-bottom: 15px;
+
+  color: var(--gold-light);
+
+  font-size: 1.45rem;
+}
+
+details h3:first-child {
+  margin-top: 0;
+}
+
+
+/* =========================================================
    SÉPARATEUR
-   --------------------------------------------------------- */
+   ========================================================= */
 
 .divider {
   width: 100%;
@@ -896,32 +1131,9 @@ details div {
 }
 
 
-/* ---------------------------------------------------------
-   SECTION "L'HISTOIRE CONTINUE"
-   --------------------------------------------------------- */
-
-.continue {
-  margin-top: 20px;
-
-  padding-top: 30px;
-}
-
-.continue h3 {
-  margin: 0 0 20px;
-
-  color: var(--white);
-
-  font-size: 1.35rem;
-}
-
-.continue p {
-  margin-bottom: 20px;
-}
-
-
-/* ---------------------------------------------------------
+/* =========================================================
    CONTACT
-   --------------------------------------------------------- */
+   ========================================================= */
 
 .contact-box {
   padding: 45px;
@@ -950,9 +1162,9 @@ details div {
 }
 
 
-/* ---------------------------------------------------------
+/* =========================================================
    FOOTER
-   --------------------------------------------------------- */
+   ========================================================= */
 
 footer {
   margin-top: 80px;
@@ -975,11 +1187,12 @@ footer strong {
 }
 
 
-/* ---------------------------------------------------------
+/* =========================================================
    ANIMATIONS
-   --------------------------------------------------------- */
+   ========================================================= */
 
 @keyframes fadeUp {
+
   from {
     opacity: 0;
 
@@ -1001,11 +1214,11 @@ footer strong {
 }
 
 
-/* ---------------------------------------------------------
+/* =========================================================
    RESPONSIVE TABLETTE
-   --------------------------------------------------------- */
+   ========================================================= */
 
-@media (max-width: 800px) {
+@media (max-width: 900px) {
 
   header {
     min-height: 85vh;
@@ -1036,14 +1249,27 @@ footer strong {
     padding: 80px 0;
   }
 
-  .albums {
-    grid-template-columns: 1fr;
 
-    gap: 25px;
-  }
+  /* Album en une colonne */
 
   .album {
+    grid-template-columns: 1fr;
+
+    gap: 35px;
+
+    padding: 35px;
+  }
+
+  .album-cover {
+    max-width: 420px;
+  }
+
+  .album-content {
     width: 100%;
+  }
+
+  .future-projects {
+    padding: 45px 30px;
   }
 
   .contact-box {
@@ -1052,9 +1278,9 @@ footer strong {
 }
 
 
-/* ---------------------------------------------------------
+/* =========================================================
    RESPONSIVE MOBILE
-   --------------------------------------------------------- */
+   ========================================================= */
 
 @media (max-width: 520px) {
 
@@ -1067,6 +1293,7 @@ footer strong {
     width:
       calc(100% - 28px);
   }
+
 
   header {
     padding:
@@ -1083,6 +1310,7 @@ footer strong {
     letter-spacing: 0.04em;
   }
 
+
   nav {
     width: 100%;
 
@@ -1098,6 +1326,7 @@ footer strong {
     font-size: 0.78rem;
   }
 
+
   section {
     padding: 65px 0;
   }
@@ -1106,19 +1335,66 @@ footer strong {
     font-size: 2rem;
   }
 
-  .album,
-  .card {
+
+  /* Albums */
+
+  .albums {
+    gap: 30px;
+  }
+
+  .album {
+    grid-template-columns: 1fr;
+
+    gap: 28px;
+
     padding: 25px;
+
+    border-radius: 20px;
+  }
+
+  .album-cover {
+    width: 100%;
+
+    max-width: 320px;
+
+    margin: 0 auto;
   }
 
   .album h3 {
-    font-size: 1.3rem;
+    font-size: 1.8rem;
+
+    margin-bottom: 18px;
   }
 
   .album p {
-    font-size: 0.93rem;
+    font-size: 0.96rem;
 
-    line-height: 1.75;
+    line-height: 1.8;
+  }
+
+  .album-content .eyebrow {
+    font-size: 0.68rem;
+
+    letter-spacing: 0.16em;
+  }
+
+  .album-meta {
+    margin-top: 25px;
+
+    padding-top: 20px;
+  }
+
+  .album-meta p {
+    font-size: 0.88rem;
+
+    line-height: 1.7;
+  }
+
+
+  /* Autres éléments */
+
+  .card {
+    padding: 25px;
   }
 
   .listen {
@@ -1140,12 +1416,26 @@ footer strong {
   .button {
     width: 100%;
   }
+
+  .future-projects {
+    padding: 40px 22px;
+
+    border-radius: 20px;
+  }
+
+  .future-projects h3 {
+    font-size: 1.7rem;
+  }
+
+  .future-signature {
+    font-size: 1.15rem;
+  }
 }
 
 
-/* ---------------------------------------------------------
+/* =========================================================
    ACCESSIBILITÉ
-   --------------------------------------------------------- */
+   ========================================================= */
 
 @media (prefers-reduced-motion: reduce) {
 
