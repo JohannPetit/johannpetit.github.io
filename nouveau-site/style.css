@@ -5,14 +5,16 @@
    ========================================================= */
 
 
-/* ---------------------------------------------------------
+/* =========================================================
    VARIABLES
-   --------------------------------------------------------- */
+   ========================================================= */
 
 :root {
+
   --bg-main: #090812;
   --bg-secondary: #11101c;
-  --bg-card: rgba(255, 255, 255, 0.055);
+
+  --bg-card: rgba(255, 255, 255, 0.045);
 
   --gold: #e6b85c;
   --gold-light: #ffd98a;
@@ -26,17 +28,18 @@
 
   --border: rgba(230, 184, 92, 0.22);
 
-  --shadow: 0 25px 70px rgba(0, 0, 0, 0.45);
+  --shadow:
+    0 25px 70px rgba(0, 0, 0, 0.42);
 
-  --radius: 18px;
+  --radius: 24px;
 
   --max-width: 1180px;
 }
 
 
-/* ---------------------------------------------------------
+/* =========================================================
    RESET
-   --------------------------------------------------------- */
+   ========================================================= */
 
 * {
   box-sizing: border-box;
@@ -47,24 +50,30 @@ html {
 }
 
 body {
+
   margin: 0;
   padding: 0;
 
-  font-family: Georgia, "Times New Roman", serif;
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
 
   color: var(--white);
 
   background:
     radial-gradient(
       circle at 15% 10%,
-      rgba(109, 75, 145, 0.25),
+      rgba(109, 75, 145, 0.24),
       transparent 35%
     ),
+
     radial-gradient(
       circle at 85% 25%,
-      rgba(230, 184, 92, 0.10),
+      rgba(230, 184, 92, 0.09),
       transparent 30%
     ),
+
     linear-gradient(
       135deg,
       #090812 0%,
@@ -80,11 +89,12 @@ body {
 }
 
 
-/* ---------------------------------------------------------
+/* =========================================================
    TEXTURE DE FOND
-   --------------------------------------------------------- */
+   ========================================================= */
 
 body::before {
+
   content: "";
 
   position: fixed;
@@ -93,13 +103,15 @@ body::before {
 
   pointer-events: none;
 
-  opacity: 0.16;
+  opacity: 0.13;
 
   background-image:
+
     linear-gradient(
       rgba(255,255,255,0.025) 1px,
       transparent 1px
     ),
+
     linear-gradient(
       90deg,
       rgba(255,255,255,0.025) 1px,
@@ -108,21 +120,23 @@ body::before {
 
   background-size: 55px 55px;
 
-  mask-image: linear-gradient(
-    to bottom,
-    black,
-    transparent 85%
-  );
+  mask-image:
+    linear-gradient(
+      to bottom,
+      black,
+      transparent 85%
+    );
 
   z-index: -1;
 }
 
 
-/* ---------------------------------------------------------
+/* =========================================================
    LIENS
-   --------------------------------------------------------- */
+   ========================================================= */
 
 a {
+
   color: var(--gold-light);
 
   text-decoration: none;
@@ -138,25 +152,28 @@ a:hover {
 }
 
 
-/* ---------------------------------------------------------
-   CONTENEUR PRINCIPAL
-   --------------------------------------------------------- */
+/* =========================================================
+   CONTENEUR
+   ========================================================= */
 
 .container {
-  width: min(
-    calc(100% - 40px),
-    var(--max-width)
-  );
+
+  width:
+    min(
+      calc(100% - 40px),
+      var(--max-width)
+    );
 
   margin: 0 auto;
 }
 
 
-/* ---------------------------------------------------------
+/* =========================================================
    HEADER
-   --------------------------------------------------------- */
+   ========================================================= */
 
 header {
+
   position: relative;
 
   min-height: 92vh;
@@ -169,16 +186,19 @@ header {
 
   text-align: center;
 
-  padding: 100px 20px 80px;
+  padding:
+    120px 20px 90px;
 
   overflow: hidden;
 
   background:
+
     radial-gradient(
       circle at 50% 25%,
       rgba(109, 75, 145, 0.30),
       transparent 40%
     ),
+
     linear-gradient(
       180deg,
       rgba(14, 12, 25, 0.25),
@@ -187,9 +207,10 @@ header {
 }
 
 
-/* Halo lumineux */
+/* Halo */
 
 header::before {
+
   content: "";
 
   position: absolute;
@@ -202,7 +223,7 @@ header::before {
   background:
     radial-gradient(
       circle,
-      rgba(230, 184, 92, 0.09),
+      rgba(230, 184, 92, 0.08),
       transparent 65%
     );
 
@@ -212,112 +233,12 @@ header::before {
 }
 
 
-/* Contenu du header */
-
-header > * {
-  position: relative;
-
-  z-index: 2;
-}
-
-
-/* ---------------------------------------------------------
-   PETIT SURTITRE
-   --------------------------------------------------------- */
-
-header .eyebrow {
-  display: block;
-
-  margin-bottom: 18px;
-
-  color: var(--gold);
-
-  font-size: 0.78rem;
-
-  font-weight: bold;
-
-  letter-spacing: 0.35em;
-
-  text-transform: uppercase;
-}
-
-
-/* ---------------------------------------------------------
-   TITRE PRINCIPAL
-   --------------------------------------------------------- */
-
-header h1 {
-  margin: 0;
-
-  color: var(--white);
-
-  font-size: clamp(
-    3rem,
-    8vw,
-    6.5rem
-  );
-
-  font-weight: 700;
-
-  line-height: 0.95;
-
-  letter-spacing: 0.015em;
-
-  text-shadow:
-    0 10px 40px rgba(0, 0, 0, 0.45);
-}
-
-
-/* ---------------------------------------------------------
-   SOUS-TITRE
-   --------------------------------------------------------- */
-
-header p {
-  margin: 28px auto 0;
-
-  max-width: 700px;
-
-  color: var(--text);
-
-  font-size: clamp(
-    1rem,
-    2vw,
-    1.35rem
-  );
-
-  letter-spacing: 0.08em;
-}
-
-
-/* ---------------------------------------------------------
-   LIGNE DÉCORATIVE
-   --------------------------------------------------------- */
-
-.gold-line {
-  width: 90px;
-
-  height: 2px;
-
-  margin: 32px auto;
-
-  background:
-    linear-gradient(
-      90deg,
-      transparent,
-      var(--gold),
-      transparent
-    );
-
-  box-shadow:
-    0 0 18px rgba(230, 184, 92, 0.35);
-}
-
-
-/* ---------------------------------------------------------
+/* =========================================================
    NAVIGATION
-   --------------------------------------------------------- */
+   ========================================================= */
 
 nav {
+
   position: absolute;
 
   top: 30px;
@@ -326,10 +247,11 @@ nav {
 
   transform: translateX(-50%);
 
-  width: min(
-    calc(100% - 40px),
-    1050px
-  );
+  width:
+    min(
+      calc(100% - 40px),
+      1050px
+    );
 
   display: flex;
 
@@ -337,16 +259,17 @@ nav {
 
   align-items: center;
 
-  gap: 10px;
+  gap: 8px;
 
   padding: 12px 18px;
 
-  border: 1px solid rgba(255,255,255,0.08);
+  border:
+    1px solid rgba(255,255,255,0.08);
 
   border-radius: 50px;
 
   background:
-    rgba(10, 9, 18, 0.65);
+    rgba(10, 9, 18, 0.72);
 
   backdrop-filter: blur(16px);
 
@@ -357,7 +280,8 @@ nav {
 }
 
 nav a {
-  padding: 10px 18px;
+
+  padding: 10px 17px;
 
   color: var(--text);
 
@@ -374,54 +298,184 @@ nav a {
 }
 
 nav a:hover {
+
   color: var(--white);
 
   background:
     rgba(230, 184, 92, 0.12);
 
-  transform: translateY(-2px);
+  transform:
+    translateY(-2px);
 }
 
 
-/* ---------------------------------------------------------
-   SECTIONS
-   --------------------------------------------------------- */
+/* =========================================================
+   HERO
+   ========================================================= */
 
-section {
+.hero-content {
+
   position: relative;
 
-  width: min(
-    calc(100% - 40px),
-    var(--max-width)
-  );
+  z-index: 2;
+
+  max-width: 900px;
+
+  animation:
+    fadeUp 0.9s ease both;
+}
+
+
+header .eyebrow {
+
+  display: block;
+
+  margin-bottom: 18px;
+
+  color: var(--gold);
+
+  font-size: 0.78rem;
+
+  font-weight: bold;
+
+  letter-spacing: 0.35em;
+
+  text-transform: uppercase;
+}
+
+
+header h1 {
+
+  margin: 0;
+
+  color: var(--white);
+
+  font-size:
+    clamp(
+      3rem,
+      8vw,
+      6.5rem
+    );
+
+  font-weight: 700;
+
+  line-height: 0.95;
+
+  letter-spacing: 0.015em;
+
+  text-shadow:
+    0 10px 40px rgba(0, 0, 0, 0.45);
+}
+
+
+.hero-subtitle {
+
+  margin:
+    28px auto 0;
+
+  color: var(--text);
+
+  font-size:
+    clamp(
+      1rem,
+      2vw,
+      1.35rem
+    );
+
+  letter-spacing: 0.08em;
+}
+
+
+.hero-description {
+
+  margin:
+    0 auto;
+
+  color: var(--text);
+
+  font-size:
+    clamp(
+      1rem,
+      2vw,
+      1.2rem
+    );
+
+  line-height: 1.8;
+}
+
+
+/* =========================================================
+   LIGNE DORÉE
+   ========================================================= */
+
+.gold-line {
+
+  width: 90px;
+
+  height: 2px;
+
+  margin: 32px auto;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      var(--gold),
+      transparent
+    );
+
+  box-shadow:
+    0 0 18px rgba(230,184,92,0.35);
+}
+
+
+/* =========================================================
+   SECTIONS
+   ========================================================= */
+
+section {
+
+  position: relative;
+
+  width:
+    min(
+      calc(100% - 40px),
+      var(--max-width)
+    );
 
   margin: 0 auto;
 
-  padding: 110px 0;
+  padding:
+    110px 0;
 }
 
 
-/* ---------------------------------------------------------
-   TITRES DE SECTIONS
-   --------------------------------------------------------- */
+/* =========================================================
+   TITRES
+   ========================================================= */
 
 section h2 {
-  margin: 0 0 35px;
+
+  margin:
+    0 0 35px;
 
   color: var(--gold-light);
 
-  font-size: clamp(
-    2rem,
-    4vw,
-    3rem
-  );
+  font-size:
+    clamp(
+      2rem,
+      4vw,
+      3rem
+    );
 
   line-height: 1.1;
 
   letter-spacing: 0.02em;
 }
 
+
 section h2::after {
+
   content: "";
 
   display: block;
@@ -439,11 +493,18 @@ section h2::after {
 }
 
 
-/* ---------------------------------------------------------
+.section-intro {
+
+  max-width: 850px;
+}
+
+
+/* =========================================================
    TEXTE
-   --------------------------------------------------------- */
+   ========================================================= */
 
 p {
+
   color: var(--text);
 
   font-size: 1.05rem;
@@ -460,19 +521,21 @@ em {
 }
 
 
-/* ---------------------------------------------------------
+/* =========================================================
    CARTES GÉNÉRALES
-   --------------------------------------------------------- */
+   ========================================================= */
 
 .card {
+
   position: relative;
 
-  padding: 32px;
+  padding: 35px;
 
   border:
     1px solid rgba(255,255,255,0.07);
 
-  border-radius: var(--radius);
+  border-radius:
+    var(--radius);
 
   background:
     linear-gradient(
@@ -481,14 +544,18 @@ em {
       rgba(255,255,255,0.025)
     );
 
-  box-shadow: var(--shadow);
+  box-shadow:
+    var(--shadow);
 
-  backdrop-filter: blur(12px);
+  backdrop-filter:
+    blur(12px);
 
   overflow: hidden;
 }
 
+
 .card::before {
+
   content: "";
 
   position: absolute;
@@ -511,96 +578,103 @@ em {
 }
 
 
-/* ---------------------------------------------------------
-   GRILLE DE CARTES
-   --------------------------------------------------------- */
-
-.grid {
-  display: grid;
-
-  grid-template-columns:
-    repeat(
-      auto-fit,
-      minmax(260px, 1fr)
-    );
-
-  gap: 25px;
-
-  align-items: start;
-}
-
-
 /* =========================================================
    DISCOGRAPHIE
    ========================================================= */
 
-.albums {
-  display: flex;
-
-  flex-direction: column;
-
-  gap: 45px;
-
-  width: 100%;
-}
-
-
-/* =========================================================
-   CARTE ALBUM
-   ========================================================= */
-
-.album {
-  position: relative;
-
-  width: 100%;
+.album-list {
 
   display: grid;
 
   grid-template-columns:
-    minmax(280px, 360px)
-    minmax(0, 1fr);
+    repeat(
+      2,
+      minmax(0, 1fr)
+    );
 
   gap: 45px;
 
+  width: 100%;
+
+  max-width: 1080px;
+
+  margin:
+    50px auto 0;
+}
+
+
+/* =========================================================
+   CARTE PROJET MUSICAL
+   ========================================================= */
+
+.album-showcase {
+
+  position: relative;
+
+  display: flex;
+
+  flex-direction: column;
+
   align-items: center;
 
-  padding: 40px;
+  width: 100%;
 
-  border:
-    1px solid rgba(255,255,255,0.09);
-
-  border-radius: 24px;
+  padding:
+    38px 35px 40px;
 
   background:
+
+    radial-gradient(
+      circle at 50% 0%,
+      rgba(109,75,145,0.24),
+      transparent 55%
+    ),
+
     linear-gradient(
       145deg,
-      rgba(109,75,145,0.18),
-      rgba(255,255,255,0.035)
+      rgba(35,32,48,0.96),
+      rgba(15,14,25,0.98)
     );
 
+  border:
+    1px solid rgba(230,184,92,0.25);
+
+  border-radius: 28px;
+
   box-shadow:
-    0 25px 65px rgba(0,0,0,0.30);
+
+    0 25px 65px rgba(0,0,0,0.32),
+
+    inset
+    0 1px 0
+    rgba(255,255,255,0.025);
 
   overflow: hidden;
 
   transition:
+
     transform 0.35s ease,
+
     border-color 0.35s ease,
+
     box-shadow 0.35s ease;
 }
 
 
-/* Ligne dorée supérieure */
+/* Ligne dorée */
 
-.album::before {
+.album-showcase::before {
+
   content: "";
 
   position: absolute;
 
   top: 0;
-  left: 0;
 
-  width: 100%;
+  left: 12%;
+
+  width: 76%;
+
   height: 2px;
 
   background:
@@ -615,18 +689,21 @@ em {
 }
 
 
-/* Halo décoratif */
+/* Halo */
 
-.album::after {
+.album-showcase::after {
+
   content: "";
 
   position: absolute;
 
-  top: -160px;
-  right: -160px;
+  width: 300px;
 
-  width: 360px;
-  height: 360px;
+  height: 300px;
+
+  top: -150px;
+
+  right: -120px;
 
   border-radius: 50%;
 
@@ -643,242 +720,294 @@ em {
 
 /* Survol */
 
-.album:hover {
-  transform: translateY(-5px);
+.album-showcase:hover {
+
+  transform:
+    translateY(-6px);
 
   border-color:
-    rgba(230,184,92,0.35);
+    rgba(230,184,92,0.48);
 
   box-shadow:
-    0 35px 80px rgba(0,0,0,0.40);
+
+    0 30px 75px rgba(0,0,0,0.42),
+
+    0 0 30px
+    rgba(230,184,92,0.05);
 }
 
 
 /* =========================================================
-   JAQUETTE DE L'ALBUM
+   JAQUETTE
    ========================================================= */
 
 .album-cover {
+
   position: relative;
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
 
   width: 100%;
 
-  max-width: 360px;
-
-  margin: 0 auto;
-
-  aspect-ratio: 1 / 1;
-
-  border-radius: 16px;
-
-  overflow: hidden;
-
-  border:
-    1px solid rgba(230,184,92,0.28);
-
-  background:
-    #0b0a12;
-
-  box-shadow:
-    0 20px 50px rgba(0,0,0,0.45);
+  margin-bottom: 30px;
 
   z-index: 2;
 }
 
 
 .album-cover img {
+
   display: block;
 
-  width: 100%;
+  width:
+    min(
+      100%,
+      330px
+    );
 
-  height: 100%;
+  aspect-ratio: 1 / 1;
 
   object-fit: cover;
 
-  object-position: center;
+  border-radius: 20px;
+
+  border:
+    1px solid rgba(230,184,92,0.38);
+
+  box-shadow:
+    0 20px 45px rgba(0,0,0,0.48);
 
   transition:
-    transform 0.5s ease,
-    filter 0.5s ease;
+
+    transform 0.4s ease,
+
+    box-shadow 0.4s ease,
+
+    filter 0.4s ease;
 }
 
 
-.album:hover .album-cover img {
-  transform: scale(1.025);
+.album-showcase:hover
+.album-cover img {
+
+  transform:
+    scale(1.025);
 
   filter:
     brightness(1.04);
-}
 
-
-/* Petit reflet */
-
-.album-cover::after {
-  content: "";
-
-  position: absolute;
-
-  inset: 0;
-
-  pointer-events: none;
-
-  background:
-    linear-gradient(
-      135deg,
-      rgba(255,255,255,0.10),
-      transparent 35%,
-      transparent 70%,
-      rgba(230,184,92,0.06)
-    );
+  box-shadow:
+    0 25px 55px rgba(0,0,0,0.55);
 }
 
 
 /* =========================================================
-   CONTENU DE L'ALBUM
+   CONTENU ALBUM
    ========================================================= */
 
 .album-content {
+
   position: relative;
 
   z-index: 2;
 
+  width: 100%;
+
   min-width: 0;
+
+  text-align: left;
 }
 
 
 .album-content .eyebrow {
+
   display: block;
 
   margin-bottom: 14px;
 
   color: var(--gold);
 
-  font-size: 0.76rem;
+  font-size: 0.72rem;
 
   font-weight: bold;
 
-  letter-spacing: 0.22em;
+  letter-spacing: 0.20em;
 
   text-transform: uppercase;
 }
 
 
-.album h3 {
-  margin: 0 0 22px;
+.album-content h3 {
+
+  margin:
+    0 0 22px;
 
   color: var(--gold-light);
 
-  font-size: clamp(
-    1.8rem,
-    3vw,
-    2.6rem
-  );
+  font-size:
+    clamp(
+      1.7rem,
+      3vw,
+      2.3rem
+    );
 
   line-height: 1.15;
-
-  letter-spacing: 0.01em;
 }
 
 
-.album p {
-  margin: 0 0 20px;
+.album-content p {
+
+  margin:
+    0 0 19px;
 
   color: var(--text);
 
-  font-size: 1rem;
+  font-size: 0.98rem;
 
-  line-height: 1.85;
+  line-height: 1.8;
 }
 
 
-.album p:last-child {
+.album-content p:last-child {
   margin-bottom: 0;
 }
 
 
-/* =========================================================
-   INFORMATIONS DE PRODUCTION
-   ========================================================= */
+.album-highlight {
 
-.album-meta {
-  position: relative;
+  padding:
+    18px 20px;
 
-  margin-top: 28px;
+  border-left:
+    2px solid var(--gold);
 
-  padding-top: 24px;
+  border-radius:
+    0 12px 12px 0;
 
-  border-top:
-    1px solid rgba(230,184,92,0.20);
+  background:
+    rgba(230,184,92,0.045);
 }
 
 
-.album-meta p {
+/* =========================================================
+   SÉPARATEUR ALBUM
+   ========================================================= */
+
+.album-divider {
+
+  width: 100%;
+
+  height: 1px;
+
+  margin:
+    28px 0;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(230,184,92,0.38),
+      transparent
+    );
+}
+
+
+/* =========================================================
+   INFORMATIONS ALBUM
+   ========================================================= */
+
+.album-details {
+
+  width: 100%;
+
+  margin-top: 5px;
+}
+
+
+.album-details p {
+
   margin: 0;
 
   color: var(--muted);
 
-  font-size: 0.94rem;
+  font-size: 0.91rem;
 
-  line-height: 1.75;
+  line-height: 1.8;
 }
 
 
-.album-meta strong {
+.album-details strong {
   color: var(--white);
 }
 
 
-/* ---------------------------------------------------------
-   SÉPARATEUR DANS LES ALBUMS
-   --------------------------------------------------------- */
-
-.album .divider {
-  margin: 25px 0;
-}
-
-
 /* =========================================================
-   SECTION "L'HISTOIRE CONTINUE"
+   HISTOIRE CONTINUE
    ========================================================= */
 
 .future-projects {
+
   position: relative;
 
-  margin-top: 65px;
+  width: 100%;
 
-  padding: 55px 45px;
+  max-width: 1025px;
+
+  margin:
+    65px auto 0;
+
+  padding:
+    55px 45px;
 
   text-align: center;
 
   border:
-    1px solid rgba(230,184,92,0.20);
+    1px solid rgba(230,184,92,0.25);
 
-  border-radius: 24px;
+  border-radius: 28px;
 
   background:
+
     radial-gradient(
-      circle at top,
-      rgba(109,75,145,0.22),
-      transparent 65%
+      circle at 50% 0%,
+      rgba(109,75,145,0.24),
+      transparent 60%
     ),
-    rgba(255,255,255,0.025);
+
+    linear-gradient(
+      145deg,
+      rgba(35,32,48,0.96),
+      rgba(15,14,25,0.98)
+    );
 
   box-shadow:
-    0 25px 70px rgba(0,0,0,0.30);
+
+    0 25px 70px rgba(0,0,0,0.30),
+
+    inset
+    0 1px 0
+    rgba(255,255,255,0.025);
 
   overflow: hidden;
 }
 
 
 .future-projects::before {
+
   content: "";
 
   position: absolute;
 
   top: 0;
+
   left: 10%;
 
   width: 80%;
+
   height: 2px;
 
   background:
@@ -888,36 +1017,43 @@ em {
       var(--gold),
       transparent
     );
+
+  opacity: 0.8;
 }
 
 
 .future-projects .eyebrow {
+
   color: var(--gold);
 
   font-size: 0.78rem;
 
   font-weight: bold;
 
-  letter-spacing: 0.3em;
+  letter-spacing: 0.30em;
 }
 
 
 .future-projects h3 {
-  margin: 18px 0 20px;
+
+  margin:
+    18px 0 20px;
 
   color: var(--gold-light);
 
-  font-size: clamp(
-    1.7rem,
-    3vw,
-    2.4rem
-  );
+  font-size:
+    clamp(
+      1.7rem,
+      3vw,
+      2.4rem
+    );
 
   line-height: 1.2;
 }
 
 
 .future-projects p {
+
   max-width: 850px;
 
   margin:
@@ -926,6 +1062,7 @@ em {
 
 
 .future-signature {
+
   margin-top: 35px;
 
   color: var(--gold-light);
@@ -941,6 +1078,7 @@ em {
    ========================================================= */
 
 .button {
+
   display: inline-flex;
 
   align-items: center;
@@ -951,7 +1089,8 @@ em {
 
   margin-top: 25px;
 
-  padding: 14px 25px;
+  padding:
+    14px 25px;
 
   color: #16121d;
 
@@ -967,28 +1106,36 @@ em {
   font-weight: bold;
 
   box-shadow:
-    0 10px 30px rgba(230,184,92,0.15);
+    0 10px 30px
+    rgba(230,184,92,0.15);
 
   transition:
+
     transform 0.25s ease,
+
     box-shadow 0.25s ease;
 }
 
+
 .button:hover {
+
   color: #16121d;
 
-  transform: translateY(-3px);
+  transform:
+    translateY(-3px);
 
   box-shadow:
-    0 15px 35px rgba(230,184,92,0.25);
+    0 15px 35px
+    rgba(230,184,92,0.25);
 }
 
 
 /* =========================================================
-   LIENS D'ÉCOUTE / RÉSEAUX
+   ÉCOUTER / RÉSEAUX
    ========================================================= */
 
 .listen {
+
   display: flex;
 
   flex-wrap: wrap;
@@ -996,14 +1143,17 @@ em {
   gap: 12px;
 }
 
+
 .listen a {
+
   display: inline-flex;
 
   align-items: center;
 
   justify-content: center;
 
-  padding: 12px 20px;
+  padding:
+    12px 20px;
 
   color: var(--white);
 
@@ -1016,12 +1166,17 @@ em {
     rgba(230,184,92,0.06);
 
   transition:
+
     background 0.25s ease,
+
     border-color 0.25s ease,
+
     transform 0.25s ease;
 }
 
+
 .listen a:hover {
+
   color: var(--white);
 
   background:
@@ -1030,7 +1185,8 @@ em {
   border-color:
     rgba(230,184,92,0.55);
 
-  transform: translateY(-2px);
+  transform:
+    translateY(-2px);
 }
 
 
@@ -1039,6 +1195,7 @@ em {
    ========================================================= */
 
 .press {
+
   padding: 35px;
 
   border-left:
@@ -1051,30 +1208,43 @@ em {
     0 var(--radius) var(--radius) 0;
 }
 
+
+.press h3 {
+
+  color: var(--gold-light);
+
+  font-size: 1.45rem;
+}
+
+
 .press p {
   margin-bottom: 18px;
 }
 
 
 /* =========================================================
-   DÉTAILS / BIOGRAPHIE
+   BIOGRAPHIE
    ========================================================= */
 
 details {
+
   margin-top: 35px;
 
-  padding: 22px 25px;
+  padding:
+    22px 25px;
 
   border:
     1px solid rgba(255,255,255,0.08);
 
-  border-radius: 14px;
+  border-radius: 18px;
 
   background:
     rgba(255,255,255,0.025);
 }
 
+
 summary {
+
   cursor: pointer;
 
   color: var(--gold-light);
@@ -1082,20 +1252,21 @@ summary {
   font-weight: bold;
 
   font-size: 1.05rem;
-
-  transition:
-    color 0.25s ease;
 }
+
 
 summary:hover {
   color: var(--white);
 }
 
+
 details > div {
   margin-top: 25px;
 }
 
+
 details h3 {
+
   margin-top: 42px;
 
   margin-bottom: 15px;
@@ -1104,6 +1275,7 @@ details h3 {
 
   font-size: 1.45rem;
 }
+
 
 details h3:first-child {
   margin-top: 0;
@@ -1115,11 +1287,13 @@ details h3:first-child {
    ========================================================= */
 
 .divider {
+
   width: 100%;
 
   height: 1px;
 
-  margin: 20px 0;
+  margin:
+    20px 0;
 
   background:
     linear-gradient(
@@ -1136,26 +1310,35 @@ details h3:first-child {
    ========================================================= */
 
 .contact-box {
-  padding: 45px;
+
+  padding:
+    45px;
 
   text-align: center;
 
   border:
-    1px solid rgba(230,184,92,0.18);
+    1px solid rgba(230,184,92,0.25);
 
-  border-radius: 22px;
+  border-radius: 28px;
 
   background:
+
     radial-gradient(
-      circle at top,
-      rgba(109,75,145,0.20),
+      circle at 50% 0%,
+      rgba(109,75,145,0.22),
       transparent 60%
     ),
-    rgba(255,255,255,0.035);
+
+    linear-gradient(
+      145deg,
+      rgba(35,32,48,0.96),
+      rgba(15,14,25,0.98)
+    );
 
   box-shadow:
     0 25px 70px rgba(0,0,0,0.30);
 }
+
 
 .contact-box h2 {
   margin-bottom: 30px;
@@ -1167,9 +1350,11 @@ details h3:first-child {
    ========================================================= */
 
 footer {
+
   margin-top: 80px;
 
-  padding: 55px 20px;
+  padding:
+    55px 20px;
 
   text-align: center;
 
@@ -1182,18 +1367,20 @@ footer {
     1px solid rgba(255,255,255,0.06);
 }
 
+
 footer strong {
   color: var(--text);
 }
 
 
 /* =========================================================
-   ANIMATIONS
+   ANIMATION
    ========================================================= */
 
 @keyframes fadeUp {
 
   from {
+
     opacity: 0;
 
     transform:
@@ -1201,6 +1388,7 @@ footer strong {
   }
 
   to {
+
     opacity: 1;
 
     transform:
@@ -1208,25 +1396,23 @@ footer strong {
   }
 }
 
-.fade-up {
-  animation:
-    fadeUp 0.8s ease both;
-}
-
 
 /* =========================================================
-   RESPONSIVE TABLETTE
+   TABLETTE
    ========================================================= */
 
 @media (max-width: 900px) {
 
   header {
+
     min-height: 85vh;
 
     padding-top: 120px;
   }
 
+
   nav {
+
     position: relative;
 
     top: auto;
@@ -1234,102 +1420,146 @@ footer strong {
 
     transform: none;
 
-    margin: 35px auto 0;
+    margin:
+      35px auto 0;
 
     flex-wrap: wrap;
 
-    border-radius: 20px;
+    border-radius: 22px;
   }
 
-  nav a {
-    font-size: 0.85rem;
-  }
 
   section {
-    padding: 80px 0;
+
+    padding:
+      80px 0;
   }
 
 
-  /* Album en une colonne */
+  /* Cartes albums */
 
-  .album {
+  .album-list {
+
     grid-template-columns: 1fr;
 
-    gap: 35px;
-
-    padding: 35px;
+    gap: 40px;
   }
 
-  .album-cover {
-    max-width: 420px;
+
+  .album-showcase {
+
+    max-width: 720px;
+
+    margin: 0 auto;
+
+    padding:
+      40px 35px;
   }
 
-  .album-content {
-    width: 100%;
+
+  .album-cover img {
+
+    width:
+      min(
+        100%,
+        360px
+      );
   }
+
 
   .future-projects {
-    padding: 45px 30px;
+
+    padding:
+      45px 30px;
   }
 
+
   .contact-box {
-    padding: 30px 22px;
+
+    padding:
+      35px 25px;
   }
 }
 
 
 /* =========================================================
-   RESPONSIVE MOBILE
+   MOBILE
    ========================================================= */
 
-@media (max-width: 520px) {
+@media (max-width: 600px) {
 
   body {
     font-size: 15px;
   }
 
+
   .container,
   section {
+
     width:
       calc(100% - 28px);
   }
 
 
   header {
+
     padding:
       100px 14px 70px;
   }
+
 
   header h1 {
     font-size: 3rem;
   }
 
-  header p {
+
+  header .eyebrow {
+    font-size: 0.68rem;
+
+    letter-spacing: 0.22em;
+  }
+
+
+  .hero-subtitle {
+
     font-size: 0.95rem;
 
     letter-spacing: 0.04em;
   }
 
 
+  .hero-description {
+    font-size: 0.95rem;
+  }
+
+
   nav {
+
     width: 100%;
 
     gap: 4px;
 
     padding: 8px;
+
+    border-radius: 18px;
   }
 
+
   nav a {
+
     padding:
       8px 10px;
 
-    font-size: 0.78rem;
+    font-size: 0.76rem;
   }
 
 
   section {
-    padding: 65px 0;
+
+    padding:
+      65px 0;
   }
+
 
   section h2 {
     font-size: 2rem;
@@ -1338,97 +1568,139 @@ footer strong {
 
   /* Albums */
 
-  .albums {
+  .album-list {
+
     gap: 30px;
+
+    margin-top: 35px;
   }
 
-  .album {
-    grid-template-columns: 1fr;
 
-    gap: 28px;
+  .album-showcase {
 
-    padding: 25px;
+    padding:
+      28px 22px 32px;
 
-    border-radius: 20px;
+    border-radius: 22px;
   }
+
 
   .album-cover {
-    width: 100%;
 
-    max-width: 320px;
-
-    margin: 0 auto;
+    margin-bottom: 25px;
   }
 
-  .album h3 {
-    font-size: 1.8rem;
+
+  .album-cover img {
+
+    width:
+      min(
+        100%,
+        320px
+      );
+
+    border-radius: 17px;
+  }
+
+
+  .album-content h3 {
+
+    font-size: 1.75rem;
 
     margin-bottom: 18px;
   }
 
-  .album p {
-    font-size: 0.96rem;
 
-    line-height: 1.8;
+  .album-content p {
+
+    font-size: 0.95rem;
+
+    line-height: 1.75;
   }
+
 
   .album-content .eyebrow {
-    font-size: 0.68rem;
 
-    letter-spacing: 0.16em;
+    font-size: 0.65rem;
+
+    letter-spacing: 0.14em;
   }
 
-  .album-meta {
-    margin-top: 25px;
 
-    padding-top: 20px;
-  }
+  .album-details p {
 
-  .album-meta p {
-    font-size: 0.88rem;
+    font-size: 0.87rem;
 
     line-height: 1.7;
   }
 
 
-  /* Autres éléments */
+  /* Histoire continue */
+
+  .future-projects {
+
+    margin-top: 45px;
+
+    padding:
+      40px 22px;
+
+    border-radius: 22px;
+  }
+
+
+  .future-projects .eyebrow {
+
+    font-size: 0.65rem;
+
+    letter-spacing: 0.18em;
+  }
+
+
+  .future-projects h3 {
+
+    font-size: 1.65rem;
+  }
+
+
+  .future-signature {
+
+    font-size: 1.1rem;
+  }
+
+
+  /* Autres */
 
   .card {
     padding: 25px;
   }
 
+
   .listen {
+
     flex-direction: column;
   }
 
+
   .listen a {
+
     width: 100%;
   }
+
 
   .press {
     padding: 25px;
   }
 
+
   .contact-box {
-    padding: 30px 20px;
+
+    padding:
+      30px 20px;
   }
+
 
   .button {
     width: 100%;
-  }
-
-  .future-projects {
-    padding: 40px 22px;
-
-    border-radius: 20px;
-  }
-
-  .future-projects h3 {
-    font-size: 1.7rem;
-  }
-
-  .future-signature {
-    font-size: 1.15rem;
   }
 }
 
@@ -1442,214 +1714,16 @@ footer strong {
   *,
   *::before,
   *::after {
+
     scroll-behavior: auto !important;
 
-    animation-duration: 0.01ms !important;
+    animation-duration:
+      0.01ms !important;
 
-    animation-iteration-count: 1 !important;
+    animation-iteration-count:
+      1 !important;
 
-    transition-duration: 0.01ms !important;
+    transition-duration:
+      0.01ms !important;
   }
-}
-/* ==========================================================
-   CARTES DES PROJETS MUSICAUX
-   ========================================================== */
-
-.album-list {
-  display: flex;
-  flex-direction: column;
-  gap: 60px;
-  margin-top: 50px;
-}
-
-.album-showcase {
-  width: 100%;
-  max-width: 1025px;
-  margin: 0 auto;
-
-  display: grid;
-  grid-template-columns: 340px 1fr;
-  gap: 55px;
-  align-items: center;
-
-  padding: 55px;
-
-  background: linear-gradient(
-    145deg,
-    rgba(35, 32, 48, 0.96),
-    rgba(18, 17, 29, 0.98)
-  );
-
-  border: 1px solid rgba(212, 164, 75, 0.38);
-  border-radius: 28px;
-
-  box-sizing: border-box;
-
-  box-shadow:
-    0 18px 45px rgba(0, 0, 0, 0.28),
-    inset 0 1px 0 rgba(255, 255, 255, 0.025);
-
-  transition:
-    transform 0.3s ease,
-    border-color 0.3s ease,
-    box-shadow 0.3s ease;
-}
-
-.album-showcase:hover {
-  transform: translateY(-4px);
-
-  border-color: rgba(212, 164, 75, 0.65);
-
-  box-shadow:
-    0 24px 55px rgba(0, 0, 0, 0.34),
-    0 0 25px rgba(212, 164, 75, 0.06);
-}
-
-
-/* ==========================================================
-   JAQUETTE
-   ========================================================== */
-
-.album-cover {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.album-cover img {
-  display: block;
-
-  width: 100%;
-  max-width: 340px;
-  aspect-ratio: 1 / 1;
-
-  object-fit: cover;
-
-  border-radius: 18px;
-
-  border: 1px solid rgba(212, 164, 75, 0.45);
-
-  box-shadow:
-    0 15px 35px rgba(0, 0, 0, 0.4);
-
-  transition:
-    transform 0.3s ease,
-    box-shadow 0.3s ease;
-}
-
-.album-showcase:hover .album-cover img {
-  transform: scale(1.02);
-
-  box-shadow:
-    0 20px 40px rgba(0, 0, 0, 0.48);
-}
-
-
-/* ==========================================================
-   CONTENU DE L'ALBUM
-   ========================================================== */
-
-.album-content {
-  min-width: 0;
-}
-
-.album-content h3 {
-  margin-top: 12px;
-  margin-bottom: 25px;
-}
-
-.album-content p {
-  line-height: 1.8;
-}
-
-
-/* ==========================================================
-   SÉPARATION DES INFORMATIONS
-   ========================================================== */
-
-.album-divider {
-  width: 100%;
-  height: 1px;
-
-  margin: 30px 0;
-
-  background: linear-gradient(
-    to right,
-    transparent,
-    rgba(212, 164, 75, 0.45),
-    transparent
-  );
-}
-
-
-/* ==========================================================
-   INFORMATIONS DE L'ALBUM
-   ========================================================== */
-
-.album-details {
-  margin-top: 10px;
-}
-
-.album-details p {
-  margin: 0;
-  line-height: 1.9;
-}
-
-
-/* ==========================================================
-   VERSION MOBILE
-   ========================================================== */
-
-@media (max-width: 900px) {
-
-  .album-showcase {
-    grid-template-columns: 1fr;
-
-    gap: 35px;
-
-    padding: 35px 28px;
-
-    border-radius: 24px;
-  }
-
-  .album-cover img {
-    max-width: 330px;
-  }
-
-  .album-content {
-    text-align: left;
-  }
-
-}
-
-
-/* ==========================================================
-   PETITS ÉCRANS
-   ========================================================== */
-
-@media (max-width: 600px) {
-
-  .album-list {
-    gap: 35px;
-    margin-top: 35px;
-  }
-
-  .album-showcase {
-    padding: 25px 20px;
-
-    border-radius: 20px;
-  }
-
-  .album-cover img {
-    max-width: 100%;
-  }
-
-  .album-content h3 {
-    margin-bottom: 20px;
-  }
-
-  .album-content p {
-    line-height: 1.7;
-  }
-
 }
