@@ -1241,11 +1241,38 @@ em {
    ÉCOUTER / RÉSEAUX
 ========================================================= */
 
+.listen-group {
+
+  width: 100%;
+
+  margin-top: 35px;
+
+  text-align: center;
+}
+
+
+.listen-title {
+
+  margin:
+    0 0 20px;
+
+  color: var(--gold-light);
+
+  font-size: 1.35rem;
+
+  letter-spacing: 0.04em;
+}
+
+
 .listen {
 
   display: flex;
 
   flex-wrap: wrap;
+
+  justify-content: center;
+
+  align-items: center;
 
   gap: 12px;
 }
@@ -1294,6 +1321,62 @@ em {
 
   transform:
     translateY(-2px);
+}
+
+
+.listen-coming-soon {
+
+  display: inline-flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  min-width: 150px;
+
+  padding:
+    9px 18px;
+
+  color: var(--muted);
+
+  border:
+    1px solid rgba(255, 255, 255, 0.10);
+
+  border-radius: 30px;
+
+  background:
+    rgba(255, 255, 255, 0.035);
+
+  font-size: 0.95rem;
+
+  font-weight: bold;
+}
+
+
+.listen-coming-soon small {
+
+  margin-top: 2px;
+
+  color: var(--gold);
+
+  font-size: 0.68rem;
+
+  font-weight: normal;
+
+  letter-spacing: 0.03em;
+}
+
+
+.social-group {
+
+  margin-top: 50px;
+
+  padding-top: 40px;
+
+  border-top:
+    1px solid rgba(230, 184, 92, 0.18);
 }
 
 
@@ -1794,12 +1877,30 @@ footer strong {
   .listen {
 
     flex-direction: column;
+
+    align-items: center;
   }
 
 
-  .listen a {
+  .listen a,
+  .listen-coming-soon {
 
     width: 100%;
+
+    max-width: 320px;
+  }
+
+
+  .listen-title {
+    font-size: 1.2rem;
+  }
+
+
+  .social-group {
+
+    margin-top: 40px;
+
+    padding-top: 30px;
   }
 
 
