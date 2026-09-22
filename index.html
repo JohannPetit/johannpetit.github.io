@@ -3,269 +3,394 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Johann Petit – Auteur, Compositeur, Interprète</title>
 
-  <meta name="description" content="Site officiel de Johann Petit, auteur-compositeur-interprète français. Albums Ombres et Lumières, Fou de Toi, Les Voix du Monde." />
+  <title>Johann Petit – Site officiel en maintenance</title>
+
+  <meta
+    name="description"
+    content="Le site officiel de Johann Petit, auteur-compositeur-interprète, est actuellement en cours de refonte."
+  />
 
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
     body {
       margin: 0;
-      font-family: Georgia, serif;
-      background: linear-gradient(180deg, #0f0f14, #1a1a22);
-      color: #f2f2f2;
+      min-height: 100%;
     }
 
-    header {
+    body {
+      min-height: 100vh;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      padding: 30px 20px;
+
+      font-family: Georgia, "Times New Roman", serif;
+
+      color: #f7f3ea;
+
+      background:
+        radial-gradient(
+          circle at 20% 20%,
+          rgba(104, 71, 150, 0.32),
+          transparent 34%
+        ),
+        radial-gradient(
+          circle at 80% 75%,
+          rgba(218, 158, 67, 0.16),
+          transparent 30%
+        ),
+        linear-gradient(
+          135deg,
+          #0b0b12 0%,
+          #171321 48%,
+          #0d0d14 100%
+        );
+
+      overflow: hidden;
+    }
+
+    /*
+      Léger motif graphique en arrière-plan
+    */
+
+    body::before {
+      content: "";
+
+      position: fixed;
+      inset: 0;
+
+      pointer-events: none;
+
+      background:
+        linear-gradient(
+          rgba(255, 255, 255, 0.025) 1px,
+          transparent 1px
+        ),
+        linear-gradient(
+          90deg,
+          rgba(255, 255, 255, 0.025) 1px,
+          transparent 1px
+        );
+
+      background-size: 42px 42px;
+
+      mask-image:
+        linear-gradient(
+          to bottom,
+          transparent,
+          black 25%,
+          black 75%,
+          transparent
+        );
+    }
+
+    /*
+      Carte centrale
+    */
+
+    .card {
+      position: relative;
+
+      width: min(900px, 100%);
+
+      padding: 70px 55px 55px;
+
       text-align: center;
-      padding: 80px 20px 60px;
-      background: radial-gradient(circle at top, #3a2a4f, #0f0f14);
+
+      border: 1px solid rgba(255, 211, 122, 0.28);
+
+      border-radius: 24px;
+
+      background: rgba(15, 15, 22, 0.76);
+
+      box-shadow:
+        0 30px 80px rgba(0, 0, 0, 0.48),
+        inset 0 1px 0 rgba(255, 255, 255, 0.05);
+
+      backdrop-filter: blur(12px);
     }
 
-    header h1 {
-      font-size: 3em;
+    /*
+      Petit titre supérieur
+    */
+
+    .eyebrow {
+      margin-bottom: 18px;
+
+      color: #ffd37a;
+
+      font-size: 0.78rem;
+
+      letter-spacing: 0.32em;
+
+      text-transform: uppercase;
+    }
+
+    /*
+      Nom de l'artiste
+    */
+
+    h1 {
       margin: 0;
-      letter-spacing: 2px;
+
+      font-size: clamp(2.7rem, 7vw, 5.4rem);
+
+      letter-spacing: 0.04em;
+
+      line-height: 1;
     }
 
-    header p {
-      font-size: 1.2em;
-      opacity: 0.85;
-      margin-top: 15px;
+    /*
+      Fonction artistique
+    */
+
+    .role {
+      margin: 18px 0 0;
+
+      color: #d8c8e8;
+
+      font-size: clamp(1rem, 2.4vw, 1.3rem);
+
+      letter-spacing: 0.08em;
     }
 
-    nav {
-      margin-top: 30px;
+    /*
+      Ligne décorative
+    */
+
+    .line {
+      width: 90px;
+
+      height: 2px;
+
+      margin: 34px auto;
+
+      background:
+        linear-gradient(
+          90deg,
+          transparent,
+          #ffd37a,
+          transparent
+        );
     }
 
-    nav a {
-      color: #d8b4ff;
-      margin: 0 15px;
-      text-decoration: none;
-      font-weight: bold;
-    }
+    /*
+      Titre maintenance
+    */
 
-    section {
-      max-width: 900px;
-      margin: auto;
-      padding: 80px 20px;
-    }
+    h2 {
+      margin: 0;
 
-    section h2 {
-      font-size: 2.2em;
-      margin-bottom: 30px;
       color: #ffd37a;
+
+      font-size: clamp(1.55rem, 3.5vw, 2.2rem);
+
+      font-weight: normal;
     }
 
-    .bio p {
+    /*
+      Texte principal
+    */
+
+    .message {
+      max-width: 650px;
+
+      margin: 22px auto 0;
+
+      color: #e8e4e0;
+
+      font-size: clamp(1rem, 2vw, 1.15rem);
+
       line-height: 1.8;
-      font-size: 1.05em;
     }
 
-    details {
-      margin-top: 30px;
-    }
+    /*
+      Message important
+    */
 
-    summary {
-      cursor: pointer;
-      color: #ffd37a;
-      font-weight: bold;
-      font-size: 1.1em;
-    }
+    .highlight {
+      margin-top: 24px;
 
-    .albums {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 30px;
-    }
+      color: #ffffff;
 
-    .album {
-      background: rgba(255,255,255,0.05);
-      padding: 25px;
-      border-radius: 12px;
-    }
-
-    .album h3 {
-      margin-top: 0;
-      color: #ffb86b;
-    }
-
-    .album p {
-      font-size: 0.95em;
-      line-height: 1.6;
-    }
-
-    .listen a {
-      display: inline-block;
-      margin: 10px 10px 0 0;
-      color: #0f0f14;
-      background: #ffd37a;
-      padding: 12px 18px;
-      border-radius: 25px;
-      text-decoration: none;
       font-weight: bold;
     }
 
-    .presskit-btn {
+    /*
+      Signature / phrase artistique
+    */
+
+    .quote {
+      margin: 32px auto 0;
+
+      color: #cbbbdc;
+
+      font-style: italic;
+
+      font-size: 1.05rem;
+    }
+
+    /*
+      Bouton contact
+    */
+
+    .actions {
+      margin-top: 38px;
+
+      display: flex;
+
+      justify-content: center;
+
+      flex-wrap: wrap;
+
+      gap: 14px;
+    }
+
+    .button {
       display: inline-block;
-      margin-top: 30px;
-      background: #ffd37a;
-      color: #0f0f14;
-      padding: 14px 22px;
+
+      padding: 13px 22px;
+
       border-radius: 30px;
-      font-weight: bold;
+
       text-decoration: none;
+
+      font-weight: bold;
+
+      transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease;
     }
+
+    .button.primary {
+      color: #16131b;
+
+      background: #ffd37a;
+
+      box-shadow:
+        0 8px 25px rgba(255, 211, 122, 0.16);
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+    }
+
+    /*
+      Pied de page
+    */
 
     footer {
-      text-align: center;
-      padding: 50px 20px;
-      background: #0f0f14;
-      font-size: 0.9em;
-      opacity: 0.7;
+      margin-top: 42px;
+
+      color: rgba(255, 255, 255, 0.52);
+
+      font-size: 0.82rem;
+
+      line-height: 1.7;
+    }
+
+    /*
+      Version téléphone
+    */
+
+    @media (max-width: 600px) {
+
+      .card {
+        padding: 48px 24px 38px;
+
+        border-radius: 18px;
+      }
+
+      .role {
+        letter-spacing: 0.04em;
+      }
+
+      .message {
+        line-height: 1.65;
+      }
     }
   </style>
 </head>
 
 <body>
 
-<header>
-  <h1>Johann Petit</h1>
-  <p>Auteur – Compositeur – Interprète</p>
+  <main class="card">
 
-  <nav>
-    <a href="#parcours">Parcours</a>
-    <a href="#presse">Presse</a>
-    <a href="#musique">Musique</a>
-    <a href="#ecouter">Écouter</a>
-    <a href="contact.html">Contact / Booking</a>
-  </nav>
-</header>
-
-<section id="parcours" class="bio">
-  <h2>Parcours</h2>
-
-  <p>
-    Johann Petit est un auteur-compositeur-interprète français. Sa musique naît du vécu,
-    des silences et de la lumière qui persiste malgré l’absence.
-  </p>
-
-  <p>
-    Très jeune, il se distingue au Grand Prix de la Chanson Wallonne avant de poursuivre
-    un long chemin d’apprentissage musical.
-  </p>
-
-  <p>
-    Son écriture aborde la perte, la paternité, la résilience et l’espoir,
-    sans jamais tricher avec l’émotion.
-  </p>
-
-  <details>
-    <summary>📄 Lire la biographie complète (presse / dossiers culturels)</summary>
-
-    <div style="margin-top:20px;">
-      <p>
-        Johann Petit est un auteur-compositeur-interprète français dont le parcours artistique
-        s’est construit entre épreuves, silences et fidélité à la musique.
-      </p>
-
-      <p>
-        Adolescent, alors qu’il est accueilli en Belgique au foyer <em>La Ferme des Proulx</em>,
-        il est remarqué pour son jeu de guitare et sa voix. Son éducateur l’inscrit au
-        Grand Prix de la Chanson Wallonne, où Johann interprète <em>Belle</em> de
-        <em>Notre-Dame de Paris</em>.
-      </p>
-
-      <p>
-        Il se classe 3ᵉ sur 180 candidats et apparaît au journal télévisé belge,
-        une première reconnaissance qui agit comme un déclic.
-      </p>
-
-      <p>
-        En 2017, un journaliste de <strong>Vosges Matin</strong> s’intéresse à son univers.
-        À la suite de cette parution, <strong>Cartel Records Studio</strong> prend contact avec lui.
-      </p>
-
-      <p>
-        Cette collaboration aboutit à la sortie de son premier album officiel,
-        <em>Ombres et Lumières</em> (16 juillet 2025).
-      </p>
-
-      <p>
-        Il poursuit aujourd’hui son chemin avec le single <em>Fou de Toi</em>,
-        avant la sortie prochaine de <em>Les Voix du Monde</em>.
-      </p>
-    </div>
-  </details>
-</section>
-
-<section id="presse">
-  <h2>Presse</h2>
-
-  <p>
-    En 2017, le quotidien régional <strong>Vosges Matin</strong> consacre un article à Johann Petit,
-    mettant en lumière son parcours et sa démarche artistique.
-  </p>
-
-  <p>
-    <a href="https://www.vosgesmatin.fr/edition-de-saint-die/2017/05/04/johann-petit-est-a-la-recherche-de-sa-voie"
-       target="_blank"
-       style="color:#ffd37a; font-weight:bold; text-decoration:none;">
-      📰 Vosges Matin — « Johann Petit est à la recherche de sa voie »
-    </a><br>
-    <span style="font-size:0.9em; opacity:0.75;">
-      Édition de Saint-Dié-des-Vosges · 4 mai 2017
-    </span>
-  </p>
-
-  <p style="font-size:0.85em; opacity:0.6;">
-    Article accessible partiellement – contenu intégral réservé aux abonnés Vosges Matin.
-  </p>
-
-  <a class="presskit-btn" href="presskit-johann-petit.pdf" target="_blank">
-    📥 Télécharger le press kit (PDF)
-  </a>
-
-  <p style="font-size:0.9em; opacity:0.7; margin-top:10px;">
-    Le dossier de presse complet (biographie, discographie, visuels, contacts) sera disponible prochainement.
-  </p>
-</section>
-
-<section id="musique">
-  <h2>Projets musicaux</h2>
-
-  <div class="albums">
-    <div class="album">
-      <h3>Ombres et Lumières (2025)</h3>
-      <p>Premier album officiel, intime et sensible.</p>
+    <div class="eyebrow">
+      Site officiel
     </div>
 
-    <div class="album">
-      <h3>Fou de Toi (Single)</h3>
-      <p>Une chanson intime et directe.</p>
+
+    <h1>
+      Johann Petit
+    </h1>
+
+
+    <p class="role">
+      Auteur · Compositeur · Interprète
+    </p>
+
+
+    <div class="line"></div>
+
+
+    <h2>
+      Le site est actuellement en maintenance
+    </h2>
+
+
+    <p class="message">
+      Une nouvelle version du site officiel de Johann Petit
+      est actuellement en cours de création.
+    </p>
+
+
+    <p class="message highlight">
+      Le site n'est pas fermé.
+    </p>
+
+
+    <p class="message">
+      Une nouvelle refonte est en préparation afin de vous proposer
+      un univers plus moderne, plus immersif et entièrement dédié
+      à son parcours et à sa musique.
+    </p>
+
+
+    <p class="quote">
+      « Des chansons pour aujourd'hui, des espoirs pour demain. »
+    </p>
+
+
+    <div class="actions">
+
+      <a
+        class="button primary"
+        href="contact.html"
+      >
+        Contact / Booking
+      </a>
+
     </div>
 
-    <div class="album">
-      <h3>Les Voix du Monde (à venir)</h3>
-      <p>Projet collectif tourné vers la transmission.</p>
-    </div>
-  </div>
-</section>
 
-<section id="ecouter" class="listen">
-  <h2>Écouter & Suivre</h2>
+    <footer>
 
-  <a href="https://open.spotify.com/intl-fr/artist/1Qjr4rI53iU5utX5mLkKB9" target="_blank">Spotify</a>
-  <a href="https://music.apple.com/fr/artist/johann-petit/1826449070" target="_blank">Apple Music</a>
-  <a href="https://www.youtube.com/@JohannPetitOfficial" target="_blank">YouTube</a>
-  <a href="https://www.tiktok.com/@johanartiste" target="_blank">TikTok</a>
-  <a href="https://www.instagram.com/johannpetitofficial" target="_blank">Instagram</a>
-  <a href="https://www.bandsintown.com/a/15606293" target="_blank">Bandsintown</a>
-</section>
+      © Johann Petit – Tous droits réservés<br />
 
-<footer>
-  © Johann Petit – Tous droits réservés<br>
-  Production Cartel Records Studio · SACEM France
-</footer>
+      Production Cartel Records Studio · SACEM France
+
+    </footer>
+
+  </main>
 
 </body>
 </html>
